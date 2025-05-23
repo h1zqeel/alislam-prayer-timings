@@ -1,0 +1,32 @@
+{
+	"SettingsPage": {
+		"settings": "Settings",
+		"latitude": "Latitude",
+		"longitude": "Longitude",
+		"timezone": "Timezone",
+		"selectTimezone": "Select Timezone",
+		"save": "Save",
+		"goBack": "Go Back",
+		"address": "Address",
+		"addressPlaceholder": "Enter Address",
+		"loadGeocode": "Load Address"
+	},
+	"PrayerCard": {
+		"title": "Prayer Times",
+		"subtitle": "Today's Prayer Times",
+		"location": "New York, NY",
+		"settings": "Settings",
+		"light": "Light",
+		"dark": "Dark",
+		"switchLanguage": "اردو",
+		"fajr": "Fajr",
+		"zuhr": "Zuhr",
+		"asr": "Asr",
+		"maghrib": "Maghrib",
+		"isha": "Isha",
+		"sunrise": "Sunrise",
+		"sunset": "Sunset",
+    "error": "Error",
+    "loading": "Loading..."
+	}
+}

@@ -1,0 +1,34 @@
+{
+	"SettingsPage": {
+		"settings": "ترتیبات",
+		"latitude": "لیٹیٹیوڈ",
+		"longitude": "لونگیٹیوڈ",
+		"timezone": "ٹائم زون",
+		"selectTimezone": "ٹائم زون منتخب کریں",
+		"save": "محفوظ کریں",
+		"goBack": "واپس جائیں",
+		"address": "پتہ",
+		"addressPlaceholder": "پتہ درج کریں",
+		"loadGeocode": "پتہ لوڈ کریں"
+	},
+
+	"PrayerCard": {
+		"title": "نماز کے اوقات",
+		"subtitle": "آج کے نماز کے اوقات",
+		"location": "نیویارک، امریکہ",
+		"settings": "ترتیبات",
+		"light": "روشن",
+		"dark": "تاریک",
+		"urdu": "اردو",
+		"fajr": "فجر",
+		"zuhr": "ظہر",
+		"asr": "عصر",
+		"maghrib": "مغرب",
+		"isha": "عشاء",
+		"sunrise": "طلوع آفتاب",
+		"sunset": "غروب آفتاب",
+		"error": "غلطی",
+		"switchLanguage":"english",
+		"loading": "Loading..."
+	}
+}
