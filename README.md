@@ -13,11 +13,7 @@ The main dashboard where users see today’s prayer schedule.
 
 - **Prayer Time List**
   - Fajr, Dhuhr, Asr, Maghrib, Isha
-  - Times calculated by your `usePrayer` context using stored coords & timezone
-  - Highlights the next upcoming prayer
-
-- **Refresh Control**
-  - Pull-to-refresh or a refresh button to recalculate times (e.g. after midnight)
+  - Times calculated by `usePrayer` context using stored coords & timezone
 
 - **Dark/Light & RTL Support**
   - Inherits site theme
@@ -44,7 +40,7 @@ Configure address, coordinates & timezone.
 
 ## Tech Stack
 
-- **Next.js 13** with `app/` router & `"use client"` components  
+- **Next.js 15** with `app/` router 
 - **React** hooks & Context (`usePrayer`)  
 - **next-intl** for translations & locale detection  
 - **Tailwind CSS** (including dark mode & custom fonts)  
