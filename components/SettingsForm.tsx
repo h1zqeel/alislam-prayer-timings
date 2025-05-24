@@ -56,6 +56,8 @@ export default function SettingsPage() {
 
 	const [isDark, setIsDark] = useState(false);
 	const [geocoding, setGeocoding] = useState(false);
+	const [geocodeError, setGeocodeError] = useState(false);
+	const [currentAddress, setCurrentAddress] = useState("");
 
 	useEffect(() => {
 		setIsDark(document.documentElement.classList.contains("dark"));
@@ -64,6 +66,9 @@ export default function SettingsPage() {
 	const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
 		setForm({ ...form, [name]: value });
+		if (name === "address") {
+			setGeocodeError(false);
+		}
 	};
 
 	const handleTimezoneChange = (
@@ -75,6 +80,7 @@ export default function SettingsPage() {
 	const geocodeAddress = async () => {
 		if (!form.address) return;
 		setGeocoding(true);
+		setGeocodeError(false);
 		try {
 			const res = await fetch(
 				`https://nominatim.openstreetmap.org/search?format=jsonv2&q=${encodeURIComponent(
@@ -90,12 +96,38 @@ export default function SettingsPage() {
 					longitude: String(lon),
 				});
 			}
-		} catch {
-			console.error("Geocode failed");
-		} finally {
 			setGeocoding(false);
+		} catch {
+			setGeocodeError(true);
 		}
 	};
+
+	async function fetchAddress(lat: number, lon: number): Promise<string> {
+		const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`;
+		const res = await fetch(url);
+		if (!res.ok) throw new Error("Failed to fetch address");
+		const js = await res.json();
+		if (js.error) {
+			setGeocodeError(true);
+			return "";
+		}
+		const addr = js.address || {};
+		const city = addr.city || addr.town || addr.village || addr.hamlet;
+		const country = addr.country;
+		return [city, country].filter(Boolean).join(", ");
+	}
+
+	useEffect(() => {
+		const lat = parseFloat(form.latitude);
+		const lon = parseFloat(form.longitude);
+		if (!isNaN(lat) && !isNaN(lon)) {
+			fetchAddress(lat, lon)
+				.then(setCurrentAddress)
+				.catch(() => setCurrentAddress(""));
+		} else {
+			setCurrentAddress("");
+		}
+	}, [form.latitude, form.longitude]);
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
@@ -109,6 +141,7 @@ export default function SettingsPage() {
 
 	const isSaveDisabled =
 		geocoding ||
+		geocodeError ||
 		!form.latitude ||
 		!form.longitude ||
 		isNaN(Number(form.latitude)) ||
@@ -137,7 +170,7 @@ export default function SettingsPage() {
 				{t("settings")}
 			</h2>
 
-			<div className="mb-4 flex-wrap max-w-md">
+			<div className="mb-4">
 				<label className="block font-medium mb-1 text-gray-700 dark:text-gray-300">
 					{t("address")}
 				</label>
@@ -169,7 +202,18 @@ export default function SettingsPage() {
 						)}
 					</button>
 				</div>
+				{geocodeError && (
+					<p className="mt-1 text-sm text-red-500">
+						{t("geocodeError") ?? "Unable to geocode address"}
+					</p>
+				)}
 			</div>
+
+			{currentAddress && (
+				<p className="mb-4 text-sm text-gray-500 dark:text-gray-400">
+					{t("currentAddress")}: {currentAddress}
+				</p>
+			)}
 
 			<div className="mb-4">
 				<label className="block font-medium mb-1 text-gray-700 dark:text-gray-300">
@@ -241,6 +285,15 @@ export default function SettingsPage() {
 					}}
 				/>
 			</div>
+
+			{(!form.latitude || !form.longitude) && (
+				<p className="mb-2 text-sm text-red-500">
+					{geocodeError
+						? t("geocodeError") ?? "Unable to geocode address"
+						: t("geocodeError") ??
+						  "Please enter valid latitude & longitude"}
+				</p>
+			)}
 
 			<button
 				type="submit"

@@ -9,7 +9,9 @@
 		"goBack": "واپس جائیں",
 		"address": "پتہ",
 		"addressPlaceholder": "پتہ درج کریں",
-		"loadGeocode": "پتہ لوڈ کریں"
+		"loadGeocode": "پتہ لوڈ کریں",
+		"currentAddress": "موجودہ پتہ",
+		"geocodeError": "انویلڈ کوآرڈینیٹس"
 	},
 
 	"PrayerCard": {

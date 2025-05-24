@@ -9,7 +9,9 @@
 		"goBack": "Go Back",
 		"address": "Address",
 		"addressPlaceholder": "Enter Address",
-		"loadGeocode": "Load Address"
+		"loadGeocode": "Load Address",
+		"currentAddress": "Current Address",
+		"geocodeError": "Invalid Coords"
 	},
 	"PrayerCard": {
 		"title": "Prayer Times",
