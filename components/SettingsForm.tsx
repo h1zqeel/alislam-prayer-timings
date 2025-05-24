@@ -137,7 +137,7 @@ export default function SettingsPage() {
 				{t("settings")}
 			</h2>
 
-			<div className="mb-4">
+			<div className="mb-4 flex-wrap max-w-md">
 				<label className="block font-medium mb-1 text-gray-700 dark:text-gray-300">
 					{t("address")}
 				</label>
