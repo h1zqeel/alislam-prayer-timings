@@ -146,7 +146,7 @@ export default function SettingsPage() {
 						name="address"
 						value={form.address}
 						onChange={handleInput}
-						className="flex-1 p-2 border rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-black dark:text-white"
+						className="flex-[2] min-w-0 p-3 border rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-black dark:text-white"
 						placeholder={t("addressPlaceholder")}
 						disabled={geocoding}
 					/>
@@ -154,7 +154,7 @@ export default function SettingsPage() {
 						type="button"
 						onClick={geocodeAddress}
 						disabled={geocoding || !form.address}
-						className="px-3 py-1 bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-200 rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition flex items-center justify-center"
+						className="flex-1 min-w-0 px-4 py-3 bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-200 rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition flex items-center justify-center"
 					>
 						{geocoding ? (
 							<FontAwesomeIcon
