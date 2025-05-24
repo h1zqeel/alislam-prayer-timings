@@ -11,7 +11,9 @@
 		"addressPlaceholder": "Enter Address",
 		"loadGeocode": "Load Address",
 		"currentAddress": "Current Address",
-		"geocodeError": "Invalid Coords"
+		"loadedAddress": "Loaded Address",
+		"geocodeError": "Invalid Coords",
+		"loading": "Loading..."
 	},
 	"PrayerCard": {
 		"title": "Prayer Times",

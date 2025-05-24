@@ -118,6 +118,7 @@ export default function SettingsPage() {
 	}
 
 	useEffect(() => {
+		setCurrentAddress("");
 		const lat = parseFloat(form.latitude);
 		const lon = parseFloat(form.longitude);
 		if (!isNaN(lat) && !isNaN(lon)) {
@@ -211,7 +212,13 @@ export default function SettingsPage() {
 
 			{currentAddress && (
 				<p className="mb-4 text-sm text-gray-500 dark:text-gray-400">
-					{t("currentAddress")}: {currentAddress}
+					{t("loadedAddress")}: {currentAddress}
+				</p>
+			)}
+
+			{!currentAddress && (
+				<p className="mb-4 text-sm text-gray-500 dark:text-gray-400">
+					{t("loading")}: {form.address}
 				</p>
 			)}
 

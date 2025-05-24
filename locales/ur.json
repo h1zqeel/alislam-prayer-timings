@@ -11,7 +11,9 @@
 		"addressPlaceholder": "پتہ درج کریں",
 		"loadGeocode": "پتہ لوڈ کریں",
 		"currentAddress": "موجودہ پتہ",
-		"geocodeError": "انویلڈ کوآرڈینیٹس"
+		"loadedAddress": "لوڈ کیا گیا پتہ",
+		"geocodeError": "انویلڈ کوآرڈینیٹس",
+		"loading": "لوڈنگ..."
 	},
 
 	"PrayerCard": {
