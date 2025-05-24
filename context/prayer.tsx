@@ -93,12 +93,13 @@ export function PrayerProvider({ children }: PropsWithChildren<object>) {
 					load(pos.coords.latitude, pos.coords.longitude);
 				},
 				() => {
-					load(31.5497, 74.3436);
+					load(-33.8688, 151.2093);
 					console.warn("Unable to retrieve location");
 				}
 			);
 		} else {
-			load(31.5497, 74.3436);
+			// Fallback to default Sydney coordinates
+			load(-33.8688, 151.2093);
 		}
 	}, [load]);
 
